@@ -4,17 +4,17 @@ import (
 	"fmt"
 )
 
-func CheckLength(num int) bool {
-	count := 0
-	for num != 0 {
-		num /= 10
-		count += 1
-	}
-	if count%2 == 0 {
-		return true
-	}
-	return false
-}
+// func CheckLength(num int) bool {
+// 	count := 0
+// 	for num != 0 {
+// 		num /= 10
+// 		count += 1
+// 	}
+// 	if count%2 == 0 {
+// 		return true
+// 	}
+// 	return false
+// }
 
 func CheckPalandrome(all int) bool {
 	Check := make([]int, 6)
@@ -42,7 +42,8 @@ func makeNumbers() int {
 			if currentMax > product {
 				break
 			}
-			if CheckLength(product) == true && CheckPalandrome(product) == true {
+			// if CheckLength(product) == true && CheckPalandrome(product) == true {
+			if CheckPalandrome(product) == true {
 				currentMax = product
 				Base = append(Base, currentMax)
 			}
