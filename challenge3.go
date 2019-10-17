@@ -1,24 +1,41 @@
-package main 
+package main
 
 import (
 	"fmt"
-	// "math"
 )
 
-func IsPrime(value int) []int {
-	Prime := make([]int, 0)
+func IsPrime(value int) bool {
 
-  for i := 2; i < value; i++ {
-      if value%i == 0 {
-          Prime = append(Prime, 0)
-      } else {
-      	Prime = append(Prime, i)
-      	fmt.Println(Prime)
-      }
-  }
-  return Prime
+	for i := 2; i < value; i++ {
+		if value%i == 0 {
+			return false
+		}
+	}
+	return true
+}
+
+func FindPrimes(highestPrime int) []int {
+	allPrimes := make([]int, 0)
+
+	for i := 2; i <= highestPrime; i++ {
+		if IsPrime(i) == true {
+			allPrimes = append(allPrimes, i)
+		}
+	}
+	return allPrimes
+}
+
+func FindFactor(all []int, num int) int {
+	Highest := make([]int, 0)
+
+	for _, factors := range all {
+		if num % factors == 0 {
+			Highest = append(Highest, num)
+		}
+	}
+	return Highest[len(Highest)-1]
 }
 
 func main() {
-	IsPrime(100)
+	fmt.Println(FindFactor(FindPrimes(1000), 1000))
 }
