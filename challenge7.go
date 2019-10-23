@@ -25,7 +25,7 @@ func FindPrimes(highestPrime int) []int {
 		}
 	}
 	highest := allPrimes[len(allPrimes)-1]
-	fmt.Println("The highest prime is %d", highest)
+	fmt.Printf("The highest prime is %d \n", highest)
 	return allPrimes
 }
 
