@@ -38,6 +38,9 @@ func makeNumbers() int {
 
 	for i := 999; i >= 100; i-- {
 		for j := 999; j >= 100; j-- {
+			fmt.Println(i)
+			fmt.Println(j)
+			fmt.Println("--------")
 			product := i * j
 			if currentMax > product {
 				break
