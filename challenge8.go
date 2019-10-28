@@ -20,28 +20,20 @@ func HandleInt() []int64 {
 	return digits
 }
 
-// func ReducePrimes(allPrimes []int) int {
-// 	sum := 0
-
-// 	for _, v := range allPrimes {
-// 		sum += v
-// 	}
-// 	return sum
-// }
-
 func ProductChecker(digits []int64) int64 {
-	// var TempProduct int64 = 0
+	var TempProduct int64 = 1
 	var FinalProduct int64 = 0
 
 	for i := 0; i < 13; i++ {
-		for _, v := range digits {
-			FinalProduct *= v
+		TempProduct = TempProduct * digits[i]
+		if TempProduct > FinalProduct {
+			FinalProduct = TempProduct
+			fmt.Println(FinalProduct)
 		}
 	}
 	return FinalProduct
 }
 
 func main() {
-	fmt.Println(ProductChecker(HandleInt()))
-	// fmt.Println(HandleInt())
+	ProductChecker(HandleInt())
 }
