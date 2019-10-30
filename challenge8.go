@@ -20,20 +20,24 @@ func HandleInt() []int64 {
 	return digits
 }
 
-func ProductChecker(digits []int64) int64 {
-	var TempProduct int64 = 1
-	var FinalProduct int64 = 0
+func ProductChecker(index int64, digits []int64) int64 {
+	var product int64 = 1
 
-	for i := 0; i < 13; i++ {
-		TempProduct = TempProduct * digits[i]
-		if TempProduct > FinalProduct {
-			FinalProduct = TempProduct
-			fmt.Println(FinalProduct)
-		}
+	for i := int64(0); i < 13; i++ {
+		product = product * digits[index +i]
 	}
-	return FinalProduct
+	return product
 }
 
 func main() {
-	ProductChecker(HandleInt())
+	digits := HandleInt()
+	var finalProduct int64 = 0
+
+	for i := int64(0); i < int64(len(digits) - 13); i++ {
+		tempProduct := ProductChecker(i, digits)
+		if tempProduct > finalProduct {
+			finalProduct = tempProduct
+		}
+	}
+	fmt.Println(finalProduct)
 }
