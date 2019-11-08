@@ -67,8 +67,8 @@ func powBig(num, power int) *big.Int {
 	return res
 }
 
-func HandleBigInt(big *big.Int) []int64 {
-	stringNum := big.String()
+func HandleBigInt(large *big.Int) []int64 {
+	stringNum := large.String()
 	digits := make([]int64, 0)
 
 	// Runes are the unicode (number) for a string //
